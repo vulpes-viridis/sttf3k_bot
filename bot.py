@@ -1,15 +1,15 @@
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import (
     ApplicationBuilder,
-    CommandHandler,
     CallbackQueryHandler,
+    CommandHandler,
     ContextTypes,
 )
+
 from fetch import fetch_timetable, find_date
 from key import _key
 
-TOKEN = _key
-app = ApplicationBuilder().token(TOKEN).build()
+app = ApplicationBuilder().token(_key).build()
 
 
 async def fetch(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
